@@ -20,14 +20,14 @@ export const AuthProvider = ({ children }) => {
   }, [token, user]);
 
   const signup = async ({ name, email, password }) => {
-    const res = await api.post("/api/auth/register", { name, email, password });
+    const res = await api.post("/auth/signup", { name, email, password });
     setToken(res.data.token);
     setUser(res.data.user);
     return res.data;
   };
 
   const login = async ({ email, password }) => {
-    const res = await api.post("/api/auth/login", { email, password });
+    const res = await api.post("/auth/login", { email, password });
     setToken(res.data.token);
     setUser(res.data.user);
     return res.data;
